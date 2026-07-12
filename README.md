@@ -1,23 +1,17 @@
 # Awesome Post-Training in Autonomous Driving Papers
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-![Last Commit](https://img.shields.io/badge/last%20update-2026--07--12-brightgreen)
-![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
-![Topic](https://img.shields.io/badge/topic-autonomous%20driving-blue)
-![Topic](https://img.shields.io/badge/topic-post--training-blue)
-
 A curated list of papers on **post-training for end-to-end autonomous driving** — the stage that refines a driving policy *after* imitation learning, using supervision **beyond** offline expert demonstrations. This includes **distillation**, **preference-based alignment**, **reinforcement learning (RL)**, and **test-time refinement**.
 
 This repository accompanies our survey:
 
-> **Post-Training in End-to-End Autonomous Driving: A Unified View**
-> Ruining Yang\*, Muxing Wang\*, Yixiao Chen, Tongfei Guo, Yi Xu, Can Cui, Zichong Yang, Yitian Zhang, Ziran Wang, Yun Fu, Lili Su.
+> **Post-Training in End-to-End Autonomous Driving: A Unified View** <br>
+> Ruining Yang\*, Muxing Wang\*, Yixiao Chen, Tongfei Guo, Yi Xu, Can Cui, Zichong Yang, Yitian Zhang, Ziran Wang, Yun Fu, Lili Su. <br>
 > *(\* Equal contribution. Northeastern University & Purdue University.)*
+>
+> [![arXiv](https://img.shields.io/badge/arXiv-2607.08072-b31b1b.svg)](https://arxiv.org/abs/2607.08072)
 
 <p align="center">
   <img src="assets/taxonomy.png" width="100%">
-  <br>
-  <em>Overview of the four major post-training families for autonomous driving.</em>
 </p>
 
 **Why post-training?** Autonomous vehicles operate in safety-critical, interaction-intensive environments where open-loop imitation of expert demonstrations is not enough: small execution errors compound over time, recovery behaviors are scarce in training data, and long-horizon objectives such as safety and comfort are not captured by pointwise labels. Post-training addresses these limitations by refining the policy with richer forms of supervision.
@@ -48,8 +42,6 @@ Tags used below: **`[Distill]`** · **`[Preference]`** · **`[RL]`** · **`[Test
   - [2025](#2025)
   - [2024](#2024)
 - [Benchmarks & Simulators](#-benchmarks--simulators)
-- [Related: Closed-Loop RL from Scratch (contrast)](#-related-closed-loop-rl-from-scratch-contrast)
-- [Background: Post-Training in LLMs / Generative Models](#-background-post-training-in-llms--generative-models)
 - [Related Surveys](#-related-surveys)
 - [Citation](#-citation)
 - [Contributing](#-contributing)
@@ -156,36 +148,12 @@ Post-training targets closed-loop driving quality, so evaluation increasingly re
 
 ---
 
-## 🔁 Related: Closed-Loop RL from Scratch (contrast)
-
-These methods train policies with closed-loop RL **without** an imitation-learned base policy. They are *not* post-training in our definition, but are closely related and often share reward / world-model machinery.
-
-- **CarPlanner: Consistent Auto-regressive Trajectory Planning for Large-scale Reinforcement Learning in Autonomous Driving**, *CVPR 2025*. [arXiv](https://arxiv.org/abs/2502.19908)
-- **Robust Autonomy Emerges from Self-Play (GigaFlow)**, *ICML 2025*. [arXiv](https://arxiv.org/abs/2502.03349)
-- **Think2Drive: Efficient Reinforcement Learning by Thinking in Latent World Model for Quasi-Realistic Autonomous Driving (CARLA v2)**, *ECCV 2024*. [arXiv](https://arxiv.org/abs/2402.16720) [Project](https://thinklab-sjtu.github.io/CornerCaseRepo/)
-- **Raw2Drive: Reinforcement Learning with Aligned World Models for End-to-End Autonomous Driving (CARLA v2)**, *NeurIPS 2025*. [arXiv](https://arxiv.org/abs/2505.16394) [Code](https://github.com/Thinklab-SJTU/Raw2Drive)
-
----
-
-## 📚 Background: Post-Training in LLMs / Generative Models
-
-Driving post-training is inspired by the broader LLM / generative-model alignment literature. Key references:
-
-- **Training Language Models to Follow Instructions with Human Feedback (InstructGPT / RLHF)**, *NeurIPS 2022*. [arXiv](https://arxiv.org/abs/2203.02155)
-- **Direct Preference Optimization: Your Language Model is Secretly a Reward Model (DPO)**, *NeurIPS 2023*. [arXiv](https://arxiv.org/abs/2305.18290)
-- **DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models (GRPO)**, *arXiv 2024*. [arXiv](https://arxiv.org/abs/2402.03300)
-- **DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning**, *arXiv 2025*. [arXiv](https://arxiv.org/abs/2501.12948)
-- **Flow-GRPO: Training Flow Matching Models via Online RL**, *NeurIPS 2025*. [arXiv](https://arxiv.org/abs/2505.05470) [Code](https://github.com/yifan123/flow_grpo)
-
----
-
 ## 📖 Related Surveys
 
 - **Vision-Language-Action Models for Autonomous Driving: Past, Present, and Future**, *arXiv 2025*. [arXiv](https://arxiv.org/abs/2512.16760) [Repo](https://github.com/worldbench/awesome-vla-for-ad)
 - **A Survey on Vision-Language-Action Models for Autonomous Driving**, *ICCV 2025 Workshop*. [arXiv](https://arxiv.org/abs/2506.24044) [Repo](https://github.com/SicongJiang/Awesome-VLA4AD)
 - **A Survey for Foundation Models in Autonomous Driving**, *ICCVDM 2025*. [arXiv](https://arxiv.org/abs/2402.01105)
-- **Beyond Behavior Cloning in Autonomous Driving: A Survey of Closed-Loop Training Techniques**, *2025*.
-- **Survey of General End-to-End Autonomous Driving: A Unified Perspective**, *2025*.
+- **Survey of General End-to-End Autonomous Driving: A Unified Perspective**, *2025*. [TechRxiv](https://www.techrxiv.org/doi/full/10.36227/techrxiv.176523315.56439138/v3)
 - **A Survey on End-to-End Autonomous Driving Training from the Perspectives of Data, Strategy, and Platform**, *IEEE T-ITS 2026*. [Repo](https://github.com/Jiaaqiliu/Awesome-Training-Ecosystem-for-E2E-AD)
 
 ---
@@ -200,8 +168,10 @@ If you find this repository or our survey useful, please consider citing:
   author  = {Yang, Ruining and Wang, Muxing and Chen, Yixiao and Guo, Tongfei and
              Xu, Yi and Cui, Can and Yang, Zichong and Zhang, Yitian and
              Wang, Ziran and Fu, Yun and Su, Lili},
-  journal = {arXiv preprint},
-  year    = {2026}
+  journal = {arXiv preprint arXiv:2607.08072},
+  year    = {2026},
+  eprint  = {2607.08072},
+  archivePrefix = {arXiv}
 }
 ```
 
