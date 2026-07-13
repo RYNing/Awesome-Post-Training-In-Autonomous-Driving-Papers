@@ -23,9 +23,9 @@ We organize post-training methods into four families by the **form of supervisio
 | Family | Supervision signal |
 | :-- | :-- |
 | **Distillation** | Teacher policy / teacher target |
-| **Preference Alignment** | Preferred–rejected pairs `(yʷ, yˡ)` |
-| **Reinforcement Learning** | Scalar reward `r(õ, y)` |
-| **Test-time Refinement** | Verifier score `v(o, y)` (no parameter update) |
+| **Preference Alignment** | Preferred–rejected pairs |
+| **Reinforcement Learning** | Scalar reward  |
+| **Test-time Refinement** | Verifier score (no parameter update) |
 
 Tags used below: **`[Distill]`** · **`[Preference]`** · **`[RL]`** · **`[Test-time]`** · **`[SFT]`** (continued / targeted supervised fine-tuning) · **`[Planner-RL]`** (RL post-training on non-foundation-model planners).
 
