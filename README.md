@@ -1,6 +1,6 @@
 # Awesome Post-Training in Autonomous Driving Papers
 
-A curated list of papers on **post-training for end-to-end autonomous driving** — the stage that refines a driving policy *after* imitation learning, using supervision **beyond** offline expert demonstrations. This includes **distillation**, **preference-based alignment**, **reinforcement learning (RL)**, and **test-time refinement**.
+A curated list of papers on **post-training for end-to-end autonomous driving**, the stage that refines a driving policy *after* imitation learning, using supervision **beyond** offline expert demonstrations. This includes **distillation**, **preference-based alignment**, **reinforcement learning (RL)**, and **test-time refinement**.
 
 This repository accompanies our survey:
 
@@ -14,22 +14,18 @@ This repository accompanies our survey:
   <img src="assets/taxonomy.png" width="100%">
 </p>
 
-**Why post-training?** Autonomous vehicles operate in safety-critical, interaction-intensive environments where open-loop imitation of expert demonstrations is not enough: small execution errors compound over time, recovery behaviors are scarce in training data, and long-horizon objectives such as safety and comfort are not captured by pointwise labels. Post-training addresses these limitations by refining the policy with richer forms of supervision.
-
-Contributions (new papers, corrections, missing links) are very welcome — please open an issue or a pull request. See [Contributing](#-contributing).
-
 ---
 
 ## 🧭 Taxonomy
 
 We organize post-training methods into four families by the **form of supervision** they use:
 
-| Family | Supervision signal | Core idea |
-| :-- | :-- | :-- |
-| **Distillation** | Teacher policy / teacher target | A stronger teacher (expert planner, larger VLM, or EMA copy) provides dense guidance to the student policy. |
-| **Preference Alignment** | Preferred–rejected pairs `(yʷ, yˡ)` | The policy is optimized directly from relative comparisons between candidate behaviors (e.g. DPO), without an explicit reward model. |
-| **Reinforcement Learning** | Scalar reward `r(õ, y)` | Rewards (rule-based, learned critics, world models, counterfactual, or reasoning-consistency) rank sampled behaviors and drive policy updates (e.g. GRPO/PPO). |
-| **Test-time Refinement** | Verifier score `v(o, y)` (no parameter update) | The fixed policy generates candidates that are re-ranked, verified, or self-corrected at inference time. |
+| Family | Supervision signal |
+| :-- | :-- |
+| **Distillation** | Teacher policy / teacher target |
+| **Preference Alignment** | Preferred–rejected pairs `(yʷ, yˡ)` |
+| **Reinforcement Learning** | Scalar reward `r(õ, y)` |
+| **Test-time Refinement** | Verifier score `v(o, y)` (no parameter update) |
 
 Tags used below: **`[Distill]`** · **`[Preference]`** · **`[RL]`** · **`[Test-time]`** · **`[SFT]`** (continued / targeted supervised fine-tuning) · **`[Planner-RL]`** (RL post-training on non-foundation-model planners).
 
@@ -138,7 +134,7 @@ Tags used below: **`[Distill]`** · **`[Preference]`** · **`[RL]`** · **`[Test
 Post-training targets closed-loop driving quality, so evaluation increasingly relies on (pseudo-)closed-loop simulators and driving-specific scores.
 
 - **NAVSIM: Data-Driven Non-Reactive Autonomous Vehicle Simulation and Benchmarking**, *NeurIPS 2024 (Datasets & Benchmarks)*. One-shot non-reactive simulation with the PDMS score. [arXiv](https://arxiv.org/abs/2406.15349) [Code](https://github.com/autonomousvision/navsim)
-- **Pseudo-Simulation for Autonomous Driving (NAVSIM v2)**, *CoRL 2025*. Two-stage pseudo-closed-loop protocol with the EPDMS score and the `navhard` split. [arXiv](https://arxiv.org/abs/2506.04218) [Code](https://github.com/autonomousvision/navsim)
+- **NAVSIM v2**, *CoRL 2025*. Two-stage pseudo-closed-loop protocol with the EPDMS score and the `navhard` split. [arXiv](https://arxiv.org/abs/2506.04218) [Code](https://github.com/autonomousvision/navsim)
 - **Bench2Drive: Towards Multi-Ability Benchmarking of Closed-Loop End-To-End Autonomous Driving**, *NeurIPS 2024 (Datasets & Benchmarks)*. Fully closed-loop on CARLA with reactive traffic; reports Driving Score (DS) and Success Rate (SR). [arXiv](https://arxiv.org/abs/2406.03877) [Code](https://github.com/Thinklab-SJTU/Bench2Drive)
 - **WOD-E2E: Waymo Open Dataset for End-to-End Driving in Challenging Long-Tail Scenarios**, *CVPR 2026*. Long-tail open-loop benchmark with the Rater Feedback Score (RFS). [arXiv](https://arxiv.org/abs/2510.26125) [Code](https://github.com/waymo-research/waymo-open-dataset)
 - **nuScenes: A Multimodal Dataset for Autonomous Driving**, *CVPR 2020*. Standard open-loop benchmark (L2 / collision rate). [arXiv](https://arxiv.org/abs/1903.11027) [Code](https://github.com/nutonomy/nuscenes-devkit)
@@ -148,7 +144,7 @@ Post-training targets closed-loop driving quality, so evaluation increasingly re
 
 ---
 
-## 📖 Related Surveys
+## Related Surveys
 
 - **Vision-Language-Action Models for Autonomous Driving: Past, Present, and Future**, *arXiv 2025*. [arXiv](https://arxiv.org/abs/2512.16760) [Repo](https://github.com/worldbench/awesome-vla-for-ad)
 - **A Survey on Vision-Language-Action Models for Autonomous Driving**, *ICCV 2025 Workshop*. [arXiv](https://arxiv.org/abs/2506.24044) [Repo](https://github.com/SicongJiang/Awesome-VLA4AD)
@@ -158,20 +154,16 @@ Post-training targets closed-loop driving quality, so evaluation increasingly re
 
 ---
 
-## 📝 Citation
+## Citation
 
 If you find this repository or our survey useful, please consider citing:
 
 ```bibtex
-@article{yang2026posttraining,
-  title   = {Post-Training in End-to-End Autonomous Driving: A Unified View},
-  author  = {Yang, Ruining and Wang, Muxing and Chen, Yixiao and Guo, Tongfei and
-             Xu, Yi and Cui, Can and Yang, Zichong and Zhang, Yitian and
-             Wang, Ziran and Fu, Yun and Su, Lili},
-  journal = {arXiv preprint arXiv:2607.08072},
-  year    = {2026},
-  eprint  = {2607.08072},
-  archivePrefix = {arXiv}
+@article{yang2026post,
+  title={Post-Training in End-to-End Autonomous Driving},
+  author={Yang, Ruining and Wang, Muxing and Chen, Yixiao and Guo, Tongfei and Xu, Yi and Cui, Can and Yang, Zichong and Zhang, Yitian and Wang, Ziran and Fu, Yun and others},
+  journal={arXiv preprint arXiv:2607.08072},
+  year={2026}
 }
 ```
 
@@ -179,18 +171,12 @@ If you find this repository or our survey useful, please consider citing:
 
 ## 🤝 Contributing
 
-Contributions are welcome! To add or fix a paper:
+Contributions are welcome! 
 
-1. Fork this repository.
-2. Add the entry under the correct **year**, using the existing format:
-   `- **`` `[Tag]` ``** Title, *Venue Year*. [arXiv](url) [Code](url)`
-3. Keep entries within a year sorted by arXiv ID (chronological).
-4. Open a pull request with a short description.
-
-You can also simply [open an issue](../../issues) to suggest a paper, report a broken link, or correct a venue.
+You can simply [open an issue](../../issues) to suggest a paper, report a broken link, or correct a venue.
 
 ---
 
 ## ⭐ Star History
 
-If this list helps your research, please consider giving it a star — it helps others discover it.
+If this list helps your research, please consider giving it a star. It helps others discover it.
